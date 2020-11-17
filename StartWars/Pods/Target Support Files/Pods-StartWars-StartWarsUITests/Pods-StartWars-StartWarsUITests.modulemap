@@ -1,0 +1,6 @@
+framework module Pods_StartWars_StartWarsUITests {
+  umbrella header "Pods-StartWars-StartWarsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

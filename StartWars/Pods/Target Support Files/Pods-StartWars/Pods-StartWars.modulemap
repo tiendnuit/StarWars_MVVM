@@ -1,0 +1,6 @@
+framework module Pods_StartWars {
+  umbrella header "Pods-StartWars-umbrella.h"
+
+  export *
+  module * { export * }
+}
