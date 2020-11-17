@@ -99,6 +99,6 @@ The **MoyaProvider<SWAPI>** is an independence injection in **NetworkManager**, 
 To run the project, clone the repo, and run `pod install` from the project directory first.
 
 ## Screenshot:
-![enter image description here](https://lh3.googleusercontent.com/kz7umgIA93myNCCdsc7_T2FSq1sWUah4BPio0J2MRxK86z-U4A_2FuIpoHUWkBR0TZapxZZIh864VqWtvpAxdwsJ6634QCpfhAxZyYRmFeqD9N6i4zhG6bS6sC8F7lbd4hyT8v4AvyXBioJCUKEkABlVwbH6kcLTHcXpMlnihZJwepsqubarooNtYQKcgm96jiL9IqDxdreoT_lP3TrsFiAa5w-Hycm_ExM_zN_Kb48hKuid484Isa48Q765Pnozk1pFISbAztItt4ZkL9Z_9_5hWYzeT91aU7AAhjAe-It-4l1tgDxzZ7_wO4FZ7Eur6JLstCNKV01hxw9g_JFidcP5i_7uwLAFbcN_IZvI8nAi5wsbbnRygHucNiStdNBuaqZCUFa92-y68R8cOT4K1gs2rrmVW3Rdi9egSqQuLsWj7EB-YFbUAw5y0j6REIBMNLDKzL80JM942sUN-rP-CSkrL_nDWWOPq7tcNBgbWtqGKf8_7b6uF6GrzR9N4sX22qVEzrFFNn5Tmv7a1kr0Ll0z1j3Xk8DX0QPckTZdi95N5HHOI6hya81hn3GbQmwUqTCFXD2nEeD8MQeCJjj3v-fUu_TUndrc21K1m2Gd36WHjj8PEUGAPpbQGnziLPcQZJ4viTVsudk7Bj1RrIiiqhE0xhw9jLRTFyNvjY_zMV_lXukGBI7jknTafbPP=w776-h1678-no?authuser=0)
+<a href="https://drive.google.com/uc?export=view&id=https://drive.google.com/file/d/1m952nxhpmibEpw5P4etHtrWuh8_c-xT4"><img src="https://drive.google.com/uc?export=view&id=https://drive.google.com/file/d/1m952nxhpmibEpw5P4etHtrWuh8_c-xT4" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 ## Author
 Tommy Doan, [tiendnuit@gmail.com](mailto:tiendnuit@gmail.com) or [tommy.doan2710@gmail.com](mailto:keyhankam@icloud.com)
