@@ -29,7 +29,8 @@ class HomeViewController: BaseViewController, Storyboarded {
         dataSource = SWDataSource(delegate: self)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-        tableView.register(UINib(nibName: "BasicResourceCellView", bundle: nil), forCellReuseIdentifier: "BasicResourceCellView")
+        let cellIdentifier = "BasicResourceCellView"
+        tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         viewModel = HomeViewModel()
     }
     

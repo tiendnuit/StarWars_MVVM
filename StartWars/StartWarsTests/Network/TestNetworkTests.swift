@@ -46,6 +46,7 @@ class TestNetworkTests: XCTestCase {
     }
     
     func test_get_list_films() throws {
+        //When
         var filmsResponse: ListResource<Film>?
         network.fetchAllResource(pageInfo: .default){ (result: Result<ListResource<Film>, MoyaError>) in
             if case let .success(listResponse) = result {
@@ -53,18 +54,24 @@ class TestNetworkTests: XCTestCase {
             }
         }
         
+        //Then
         XCTAssert(filmsResponse != nil)
         XCTAssert(filmsResponse?.results.count == 6)
     }
     
     func test_search_people_with_text_t() throws {
+        //Given
+        let textSearch = "t"
+        
+        //When
         var response: ListResource<Person>?
-        network.search("t", pageInfo: .default){ (result: Result<ListResource<Person>, MoyaError>) in
+        network.search(textSearch, pageInfo: .default){ (result: Result<ListResource<Person>, MoyaError>) in
             if case let .success(listResponse) = result {
                 response = listResponse
             }
         }
         
+        //Then
         XCTAssert(response != nil)
         XCTAssert(response?.results.count == 10)
         XCTAssert(response?.results.first?.name == "Darth Vader")
