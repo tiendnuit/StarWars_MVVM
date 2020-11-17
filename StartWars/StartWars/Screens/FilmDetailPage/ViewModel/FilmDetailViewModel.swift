@@ -34,8 +34,6 @@ class FilmDetailViewModel: DetailViewModel<Film> {
         if !item.characters.isEmpty {
             characters = []
             item.characters
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Person, MoyaError>) in
@@ -53,8 +51,6 @@ class FilmDetailViewModel: DetailViewModel<Film> {
         if !item.planets.isEmpty {
             planets = []
             item.planets
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Planet, MoyaError>) in
@@ -72,8 +68,6 @@ class FilmDetailViewModel: DetailViewModel<Film> {
         if !item.starships.isEmpty {
             starships = []
             item.starships
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Starship, MoyaError>) in
@@ -91,8 +85,6 @@ class FilmDetailViewModel: DetailViewModel<Film> {
         if !item.species.isEmpty {
             species = []
             item.species
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Species, MoyaError>) in
@@ -110,8 +102,6 @@ class FilmDetailViewModel: DetailViewModel<Film> {
         if !item.vehicles.isEmpty {
             vehicles = []
             item.vehicles
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Vehicle, MoyaError>) in

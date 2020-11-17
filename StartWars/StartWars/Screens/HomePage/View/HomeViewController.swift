@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Combine
+import SVProgressHUD
 
 class HomeViewController: BaseViewController, Storyboarded {
     @IBOutlet weak var tableView: UITableView!
@@ -47,8 +48,10 @@ class HomeViewController: BaseViewController, Storyboarded {
                 switch state {
                 case .loading:
                     print("loading....")
+                    SVProgressHUD.show()
                 case .stop:
                     print("stop....")
+                    SVProgressHUD.dismiss()
                 case .error(let error):
                     print("error....\(error)")
                 }
@@ -66,7 +69,6 @@ class HomeViewController: BaseViewController, Storyboarded {
             .compactMap { $0.text }
             .receive(on: RunLoop.main)
             .debounce(for: 0.2, scheduler: RunLoop.main)
-            //.removeDuplicates()
             .assign(to: \.searchText, on: viewModel)
             .store(in: &bindings)
         

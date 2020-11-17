@@ -28,8 +28,6 @@ class VehicleDetailViewModel: DetailViewModel<Vehicle> {
         if !item.pilots.isEmpty {
             pilots = []
             item.pilots
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Person, MoyaError>) in
@@ -47,8 +45,6 @@ class VehicleDetailViewModel: DetailViewModel<Vehicle> {
         if !item.films.isEmpty {
             films = []
             item.films
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Film, MoyaError>) in

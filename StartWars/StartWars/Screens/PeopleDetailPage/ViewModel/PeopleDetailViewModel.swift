@@ -45,8 +45,6 @@ class PeopleDetailViewModel: DetailViewModel<Person> {
         if !item.starships.isEmpty {
             starships = []
             item.starships
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Starship, MoyaError>) in
@@ -64,8 +62,6 @@ class PeopleDetailViewModel: DetailViewModel<Person> {
         if !item.species.isEmpty {
             species = []
             item.species
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Species, MoyaError>) in
@@ -84,8 +80,6 @@ class PeopleDetailViewModel: DetailViewModel<Person> {
         if !item.vehicles.isEmpty {
             vehicles = []
             item.vehicles
-                .compactMap{URL(string: $0)}
-                .compactMap{$0.lastPathComponent}
                 .forEach{
                     group.enter()
                     apiService.fetchResource($0) { [weak self] (result: Result<Vehicle, MoyaError>) in

@@ -35,5 +35,4 @@ class SWDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.itemSelected(at: indexPath)
     }
-    
 }
