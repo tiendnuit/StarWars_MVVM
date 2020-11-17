@@ -7,8 +7,9 @@ An example of MVVM + UIKit + Combine with search and display Star Wars resources
 -  Search and display Star Wars resources
 -  Using **Swift** + **MVVM** + **UIKit** + **Combine** + **POP**
 -  Using [**Moya**](https://github.com/Moya/Moya) for Network layer
--   Be able to traverse resources by navigating through movies or resources
--   Pull in images of resources with hardcoded URLs
+-  Be able to traverse resources by navigating through movies or resources
+-  Pull in images of resources with hardcoded URLs
+-  Cache fetched resources in memory
 
 
 ## Requirements
@@ -87,6 +88,12 @@ The **MoyaProvider<SWAPI>** is an independence injection in **NetworkManager**, 
         XCTAssert(filmResponse != nil)
         XCTAssert(filmResponse?.title == "A New Hope")
     }
+
+## Next Features
+- Implement Paging on HomePage
+- Apply Coordinator pattern
+- Using Combine in Network layer
+- Replace UIKit by SwiftUI
 
 ## Usage
 To run the project, clone the repo, and run `pod install` from the project directory first.
