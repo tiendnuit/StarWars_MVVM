@@ -9,39 +9,6 @@ import Foundation
 import UIKit
 import Combine
 
-class BaseViewController: UIViewController, UIViewControllerConfigurable {
-    private var backgroundGradientLayer: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.colorWithHexString("#196068").cgColor,
-                                UIColor.colorWithHexString("#111111").cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.45)
-        gradientLayer.endPoint = CGPoint(x: 0.2, y: 1)
-        return gradientLayer
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupComponents()
-        bindViewModel()
-        updateUI()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        backgroundGradientLayer.frame = view.bounds
-    }
-    
-    func setupComponents() {
-        view.layer.insertSublayer(backgroundGradientLayer, at: 0)
-    }
-    
-    func bindViewModel() {
-    }
-    
-    func updateUI() {
-    }
-}
-
 class HomeViewController: BaseViewController, Storyboarded {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
@@ -57,6 +24,7 @@ class HomeViewController: BaseViewController, Storyboarded {
     
     override func setupComponents() {
         super.setupComponents()
+        
         dataSource = SWDataSource(delegate: self)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource

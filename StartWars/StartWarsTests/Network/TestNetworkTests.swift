@@ -28,15 +28,21 @@ class TestNetworkTests: XCTestCase {
     }
 
     func testGet_mockFilm_withID_1() throws {
+        //Given
+        let filmId = "1"
+        
+        //When
         var filmResponse: Film?
-        network.fetchResource("1") { (result: Result<Film, MoyaError>) in
+        network.fetchResource(filmId) { (result: Result<Film, MoyaError>) in
             if case let .success(film) = result {
                 filmResponse = film
             }
         }
         
+        //Then
         XCTAssert(filmResponse != nil)
         XCTAssert(filmResponse?.title == "A New Hope")
+        XCTAssertEqual(filmResponse?.title, "A New Hope")
     }
     
     func test_get_list_films() throws {

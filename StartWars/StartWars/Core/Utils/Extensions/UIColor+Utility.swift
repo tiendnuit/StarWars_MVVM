@@ -13,7 +13,7 @@ extension UIColor {
         return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: alpha)
     }
     
-    static func colorWithHexString(_ hex: String, alpha: CGFloat = 1.0) -> UIColor {
+    static func hexColor(_ hex: String, alpha: CGFloat = 1.0) -> UIColor {
         
         var hexFormatted: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
 
