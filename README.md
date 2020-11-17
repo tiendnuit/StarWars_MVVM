@@ -100,5 +100,6 @@ To run the project, clone the repo, and run `pod install` from the project direc
 
 ## Screenshot:
 <a href="https://drive.google.com/uc?export=view&id=https://drive.google.com/file/d/1m952nxhpmibEpw5P4etHtrWuh8_c-xT4"><img src="https://drive.google.com/uc?export=view&id=https://drive.google.com/file/d/1m952nxhpmibEpw5P4etHtrWuh8_c-xT4" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
 ## Author
 Tommy Doan, [tiendnuit@gmail.com](mailto:tiendnuit@gmail.com) or [tommy.doan2710@gmail.com](mailto:keyhankam@icloud.com)
