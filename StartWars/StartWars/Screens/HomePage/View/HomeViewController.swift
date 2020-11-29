@@ -23,9 +23,15 @@ class HomeViewController: BaseViewController, Storyboarded {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.navigationBar.sizeToFit()
+        }
+    }
+    
     override func setupComponents() {
         super.setupComponents()
-        
         dataSource = SWDataSource(delegate: self)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource

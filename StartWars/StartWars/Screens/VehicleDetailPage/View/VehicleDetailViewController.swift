@@ -27,6 +27,7 @@ class VehicleDetailViewController: BaseViewController, Storyboarded, OverviewRes
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -86,5 +87,5 @@ extension VehicleDetailViewController: ListResourceProtocol {
     var vm: DetailViewModelProtocol {
         viewModel
     }
-    
+
 }
