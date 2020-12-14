@@ -40,7 +40,7 @@ extension SectionedTableViewDataSource: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        delegate?.titleForHeader(at: section)
+        delegate?.titleForHeader(section)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

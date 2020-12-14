@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class DetailViewModel<T: ResourcePresentable>: DetailViewModelProtocol {
+class DetailViewModel<T: ResourcePresentable>: DetailViewModelProtocol, ListResourceProtocol {
     @Published internal var state: ViewModelState = .stop
     @Published internal var items: [Any] = []
     internal let item: T

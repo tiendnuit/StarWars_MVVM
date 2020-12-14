@@ -36,7 +36,7 @@ class SpeciesDetailViewController: BaseViewController, Storyboarded, OverviewRes
     
     override func setupComponents() {
         super.setupComponents()
-        dataSource = SectionedTableViewDataSource(delegate: self)
+        dataSource = SectionedTableViewDataSource(delegate: viewModel)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
     }
@@ -78,13 +78,5 @@ class SpeciesDetailViewController: BaseViewController, Storyboarded, OverviewRes
         map(resource: viewModel.item)
     }
     
-    
-}
-
-// MARK: - ListResourceProtocol
-extension SpeciesDetailViewController: ListResourceProtocol {
-    var vm: DetailViewModelProtocol {
-        viewModel
-    }
     
 }

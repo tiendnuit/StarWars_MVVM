@@ -36,7 +36,7 @@ class PlanetDetailViewController: BaseViewController, Storyboarded, OverviewReso
     
     override func setupComponents() {
         super.setupComponents()
-        dataSource = SectionedTableViewDataSource(delegate: self)
+        dataSource = SectionedTableViewDataSource(delegate: viewModel)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
     }
@@ -78,13 +78,5 @@ class PlanetDetailViewController: BaseViewController, Storyboarded, OverviewReso
         map(resource: viewModel.item)
     }
     
-    
-}
-
-// MARK: - ListResourceProtocol
-extension PlanetDetailViewController: ListResourceProtocol {
-    var vm: DetailViewModelProtocol {
-        viewModel
-    }
     
 }

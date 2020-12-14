@@ -37,7 +37,7 @@ class VehicleDetailViewController: BaseViewController, Storyboarded, OverviewRes
     
     override func setupComponents() {
         super.setupComponents()
-        dataSource = SectionedTableViewDataSource(delegate: self)
+        dataSource = SectionedTableViewDataSource(delegate: viewModel)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
     }
@@ -80,12 +80,4 @@ class VehicleDetailViewController: BaseViewController, Storyboarded, OverviewRes
     }
     
     
-}
-
-// MARK: - ListResourceProtocol
-extension VehicleDetailViewController: ListResourceProtocol {
-    var vm: DetailViewModelProtocol {
-        viewModel
-    }
-
 }

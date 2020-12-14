@@ -37,7 +37,7 @@ class PeopleDetailViewController: BaseViewController, Storyboarded, OverviewReso
     
     override func setupComponents() {
         super.setupComponents()
-        dataSource = SectionedTableViewDataSource(delegate: self)
+        dataSource = SectionedTableViewDataSource(delegate: viewModel)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
     }
@@ -90,11 +90,4 @@ class PeopleDetailViewController: BaseViewController, Storyboarded, OverviewReso
     }
     
     
-}
-
-// MARK: - ListResourceProtocol
-extension PeopleDetailViewController: ListResourceProtocol {
-    var vm: DetailViewModelProtocol {
-        viewModel
-    }
 }

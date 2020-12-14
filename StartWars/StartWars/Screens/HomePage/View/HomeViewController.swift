@@ -15,7 +15,8 @@ class HomeViewController: BaseViewController, Storyboarded {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
-    private var dataSource: SWDataSource!
+    //private var dataSource: SWDataSource!
+    private var dataSource: SectionedTableViewDataSource!
     private var viewModel: HomeViewModel!
     private var bindings = Set<AnyCancellable>()
     
@@ -32,17 +33,18 @@ class HomeViewController: BaseViewController, Storyboarded {
     
     override func setupComponents() {
         super.setupComponents()
-        dataSource = SWDataSource(delegate: self)
+        viewModel = HomeViewModel()
+        dataSource = SectionedTableViewDataSource(delegate: viewModel)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         let cellIdentifier = "BasicResourceCellView"
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        viewModel = HomeViewModel()
+        
     }
     
     override func bindViewModel() {
         func bindViewModelToView() {
-            let reloadTableHandler: ([ResourcePresentable]) -> Void = { [weak self] _ in
+            let reloadTableHandler: ([Any]) -> Void = { [weak self] _ in
                 self?.tableView.reloadData()
             }
             
@@ -91,14 +93,5 @@ class HomeViewController: BaseViewController, Storyboarded {
         guard let resourceType = ResourceType(rawValue: segmentControl.selectedSegmentIndex) else { return }
         textField.text = ""
         viewModel.resourceType = resourceType
-    }
-}
-
-
-
-// MARK: -- ListResourceProtocol
-extension HomeViewController: ListResourceProtocol {
-    var vm: DetailViewModelProtocol {
-        viewModel
     }
 }

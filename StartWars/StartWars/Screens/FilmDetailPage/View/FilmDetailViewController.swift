@@ -36,7 +36,7 @@ class FilmDetailViewController: BaseViewController, Storyboarded, OverviewResour
     
     override func setupComponents() {
         super.setupComponents()
-        dataSource = SectionedTableViewDataSource(delegate: self)
+        dataSource = SectionedTableViewDataSource(delegate: viewModel)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
     }
@@ -81,10 +81,10 @@ class FilmDetailViewController: BaseViewController, Storyboarded, OverviewResour
     
 }
 
-// MARK: - ListResourceProtocol
-extension FilmDetailViewController: ListResourceProtocol {
-    var vm: DetailViewModelProtocol {
-        viewModel
-    }
-    
-}
+//// MARK: - ListResourceProtocol
+//extension FilmDetailViewController: ListResourceProtocol {
+//    var vm: DetailViewModelProtocol {
+//        viewModel
+//    }
+//
+//}

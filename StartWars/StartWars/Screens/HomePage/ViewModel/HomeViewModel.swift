@@ -18,9 +18,17 @@ enum ViewModelState {
 
 class HomeViewModel {
     @Published var searchText: String = ""
-    @Published private(set) var items: [ResourcePresentable] = []
+    @Published private(set) var items: [Any] = []
     @Published private(set) var state: ViewModelState = .stop
     @Published var resourceType: ResourceType = .films
+    
+    private var films: [Film] = []
+    private var people: [Person] = []
+    private var planets: [Planet] = []
+    private var species: [Species] = []
+    private var starships: [Starship] = []
+    private var vehicles: [Vehicle] = []
+    
     
     private let apiService: Networkable
     private var bindings = Set<AnyCancellable>()
@@ -54,15 +62,15 @@ class HomeViewModel {
     }
 }
 
-extension HomeViewModel: DetailViewModelProtocol {
+extension HomeViewModel: ListResourceProtocol {
     var sections: [ResourcesSection] {
-        [ResourcesSection(header: "", items: items)]
+        var results = [ResourcesSection]()
+        results.append(ResourcesSection(header: "Films", items: films))
+        results.append(ResourcesSection(header: "People", items: people))
+        results.append(ResourcesSection(header: "Planets", items: planets))
+        
+        return results
     }
-    
-    func fetchDetail() {
-    }
-    
-    
 }
 
 // MARK: -- Fetch Data
@@ -73,22 +81,68 @@ extension HomeViewModel {
             return
         }
         state = .loading
-        switch resourceType {
-        case .films:
-            searchFilm(text)
-        case .people:
-            searchPeople(text)
-        case .planets:
-            searchPlanet(text)
-        case .species:
-            searchSpecies(text)
-        case .starships:
-            searchStarship(text)
-        case .vehicles:
-            searchVehicle(text)
-        }
+//        switch resourceType {
+//        case .films:
+//            searchFilm(text)
+//        case .people:
+//            searchPeople(text)
+//        case .planets:
+//            searchPlanet(text)
+//        case .species:
+//            searchSpecies(text)
+//        case .starships:
+//            searchStarship(text)
+//        case .vehicles:
+//            searchVehicle(text)
+//        }
 
+        let group = DispatchGroup()
+        //Search Film
+        group.enter()
+        apiService.search(text, pageInfo: pageInfo) { [weak self] (result: Result<ListResource<Film>, MoyaError>) in
+            guard let `self` = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let listFilms):
+                self.films = listFilms.results
+            }
+            group.leave()
+        }
+        
+        //Search People
+        group.enter()
+        apiService.search(text, pageInfo: pageInfo) { [weak self] (result: Result<ListResource<Person>, MoyaError>) in
+            guard let `self` = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let people):
+                self.people = people.results
+            }
+            group.leave()
+        }
+        
+        //Search Planet
+        group.enter()
+        apiService.search(text, pageInfo: pageInfo) { [weak self] (result: Result<ListResource<Planet>, MoyaError>) in
+            guard let `self` = self else { return }
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let planetList):
+                self.planets = planetList.results
+            }
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.state = .stop
+            self.items = self.sections
+        }
     }
+    
+    
     
     ///Search Film with search text
     private func searchFilm(_ text: String) {

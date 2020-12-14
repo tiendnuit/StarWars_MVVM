@@ -39,7 +39,7 @@ class StarshipDetailViewController: BaseViewController, Storyboarded, OverviewRe
     
     override func setupComponents() {
         super.setupComponents()
-        dataSource = SectionedTableViewDataSource(delegate: self)
+        dataSource = SectionedTableViewDataSource(delegate: viewModel)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
     }
@@ -84,10 +84,3 @@ class StarshipDetailViewController: BaseViewController, Storyboarded, OverviewRe
     
 }
 
-// MARK: - ListResourceProtocol
-extension StarshipDetailViewController: ListResourceProtocol {
-    var vm: DetailViewModelProtocol {
-        viewModel
-    }
-    
-}
